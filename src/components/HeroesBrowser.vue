@@ -1,32 +1,30 @@
 <template>
-  <div id="heroes-browser">
-    <hero-item v-for="hero in heroes" :key="hero.id" :hero="hero"></hero-item>
+  <div class="heroes-browser">
+    <heroes-grid :heroes="strHeroes"></heroes-grid>
+    <heroes-grid :heroes="agiHeroes"></heroes-grid>
+    <heroes-grid :heroes="intHeroes"></heroes-grid>
   </div>
 </template>
 
-<style lang="scss" scoped>
-#heroes-browser {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  column-gap: 10px;
-  row-gap: 10px;
-  justify-items: center;
-}
-</style>
-
 <script>
 import axios from "axios";
-import HeroItem from "components/HeroItem";
+import HeroesGrid from "components/HeroesGrid";
 
 export default {
   name: "HeroesBrowser",
   components: {
-    HeroItem,
+    HeroesGrid,
   },
   computed: {
-    heroes() {
-      return this.$store.state.heroes;
+    strHeroes() {
+      return this.$store.getters.heroesByAttr('str');
     },
+    agiHeroes() {
+      return this.$store.getters.heroesByAttr('agi');
+    },
+    intHeroes() {
+      return this.$store.getters.heroesByAttr('int');
+    }
   },
 };
 </script>

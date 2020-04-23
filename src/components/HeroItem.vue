@@ -20,11 +20,17 @@
 
   &__thumbnail {
     width: 85px;
+    transition: all 200ms ease-in;
 
     img {
       width: 100%;
       height: auto;
       display: block;
+    }
+
+    &:hover {
+      transform: scale(1.7, 1.7);
+      transition: all 200ms ease-out;
     }
   }
 }
