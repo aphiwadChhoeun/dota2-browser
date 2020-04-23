@@ -13,20 +13,14 @@
           role
         }}</span>
       </div>
-      <div class="hero-props">
-        Attack Type: {{hero.attack_type}}
-      </div>
-      <div class="hero-props">
-        Base Health: {{hero.base_health}}
-      </div>
-      <div class="hero-props">
-        Base Mana: {{hero.base_mana}}
-      </div>
-      <div class="hero-props">
-        Base Armor: {{hero.base_armor}}
-      </div>
-      <div class="hero-props">
-        Movement Speed: {{hero.move_speed}}
+      <div class="hero-props">Attack Type: {{ hero.attack_type }}</div>
+      <div class="hero-props">Base Health: {{ hero.base_health }}</div>
+      <div class="hero-props">Base Mana: {{ hero.base_mana }}</div>
+      <div class="hero-props">Base Armor: {{ hero.base_armor }}</div>
+      <div class="hero-props">Movement Speed: {{ hero.move_speed }}</div>
+
+      <div class="hero-lore">
+        {{ lore }}
       </div>
     </div>
   </div>
@@ -42,7 +36,11 @@
 .hero-tag {
   margin: 0 4px 0 0;
   padding: 1px 4px;
-  background-color: $PRIMARYCOLOR;  
+  background-color: $PRIMARYCOLOR;
+}
+
+.hero-lore {
+  padding: 10px 0;
 }
 </style>
 
@@ -52,10 +50,12 @@ export default {
   data() {
     return {
       hero: null,
+      lore: null,
     };
   },
   created() {
     this.hero = this.$store.getters.heroByid(this.$route.params.id);
+    this.lore = this.$store.getters.lorebyHero(this.hero.localized_name);
   },
 };
 </script>

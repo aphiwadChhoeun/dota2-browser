@@ -1,10 +1,11 @@
 import axios from "axios";
 import heroes from "./heroes.json";
+import heroLore from "./lore.json";
 
 export default class DataService {
   static async fetchHeroes() {
     if (heroes) {
-      return new Promise((resolve, reject) => resolve(Object.values(heroes)));
+      return Object.values(heroes);
     }
     try {
       const resp = await axios.get(
@@ -15,5 +16,13 @@ export default class DataService {
     } catch (err) {
       return [];
     }
+  }
+
+  static async fetchHeroLore() {
+    if (heroLore) {
+      return heroLore;
+    }
+
+    return [];
   }
 }

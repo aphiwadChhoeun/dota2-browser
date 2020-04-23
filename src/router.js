@@ -10,7 +10,11 @@ const beforeEnterMiddleware = (store) => (to, from, next) => {
   if (from.name == null) {
     DataService.fetchHeroes().then((heroes) => {
       store.commit("loadHeroes", heroes);
-      next();
+
+      DataService.fetchHeroLore().then((lore) => {
+        store.commit("loadLore", lore);
+        next();
+      });
     });
   } else {
     next();
