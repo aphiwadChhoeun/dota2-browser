@@ -1,17 +1,17 @@
 import Vue from "vue";
-import Vuex from 'vuex';
+import Vuex from "vuex";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    heroes: [],
   },
   mutations: {
-    increment (state) {
-      state.count++
-    }
-  }
+    loadHeroes(state, heroes) {
+      state.heroes = heroes;
+    },
+  },
 });
 
 export default store;
