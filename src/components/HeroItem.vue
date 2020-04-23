@@ -20,6 +20,8 @@
 
   &__thumbnail {
     width: 85px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px #000000;
     transition: all 200ms ease-in;
 
     img {
@@ -30,6 +32,7 @@
 
     &:hover {
       transform: scale(1.7, 1.7);
+      filter: brightness(1.2);    
       transition: all 200ms ease-out;
     }
   }
