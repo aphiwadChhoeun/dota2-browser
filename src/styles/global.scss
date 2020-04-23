@@ -1,4 +1,5 @@
 @import "./variables";
+@import "./mixins";
 
 * {
   font-family: "Rubik", sans-serif;
@@ -13,6 +14,10 @@ body {
   background-color: $BACKGROUND;
 
   #app {
-    margin: 140px 285px;
+    margin: 40px 15px;
+
+    @include breakpoint("desktop") {
+      margin: 140px 285px;
+    }
   }
 }

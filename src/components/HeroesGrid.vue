@@ -5,13 +5,23 @@
 </template>
 
 <style lang="scss">
+@import "../styles/mixins";
+
 .heroes-grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   column-gap: 10px;
   row-gap: 5px;
   justify-items: center;
   margin: 65px 0;
+
+  @include breakpoint("tablet") {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include breakpoint("desktop") {
+    grid-template-columns: repeat(8, 1fr);
+  }
 }
 </style>
 
