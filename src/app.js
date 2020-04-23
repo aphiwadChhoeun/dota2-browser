@@ -1,17 +1,13 @@
 import Vue from "vue";
-import Vuex from "vuex";
 import DataService from "services/DataService";
 
-import HeroesBrowser from "components/HeroesBrowser";
-
+import router from "router";
 import store from "store";
 
 const app = new Vue({
   el: "#app",
   store: store,
-  components: {
-    HeroesBrowser,
-  },
+  router: router,
   created() {
     DataService.fetchHeroes().then((heroes) => {
       this.$store.commit("loadHeroes", heroes);

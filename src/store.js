@@ -22,6 +22,10 @@ const store = new Vuex.Store({
         },
       ]);
     },
+
+    heroByid: (state) => (id) => {
+      return state.heroes.find((el) => el.id == id);
+    },
   },
 });
 

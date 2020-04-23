@@ -1,6 +1,6 @@
 <template>
   <div class="hero-item">
-    <div class="hero-item__thumbnail">
+    <div class="hero-item__thumbnail" @click="heroItemClicked(hero.id)">
       <img
         :src="`https://api.opendota.com${hero.img}`"
         :alt="hero.localized_name"
@@ -35,7 +35,7 @@
       width: 100%;
       height: auto;
       display: block;
-      opacity: 0.0;
+      opacity: 0;
 
       &.loaded {
         animation: heroIn 500ms ease-in;
@@ -82,6 +82,10 @@ export default {
   methods: {
     thumbnailLoaded() {
       this.classLoaded = true;
+    },
+
+    heroItemClicked(id) {
+      this.$emit("heroClicked", id);
     },
   },
 };

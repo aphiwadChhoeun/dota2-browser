@@ -1,6 +1,11 @@
 <template>
   <div class="heroes-grid">
-    <hero-item v-for="hero in heroes" :key="hero.id" :hero="hero"></hero-item>
+    <hero-item
+      v-for="hero in heroes"
+      :key="hero.id"
+      :hero="hero"
+      v-on:heroClicked="heroItemClicked"
+    ></hero-item>
   </div>
 </template>
 
@@ -35,6 +40,11 @@ export default {
   },
   props: {
     heroes: Array,
+  },
+  methods: {
+    heroItemClicked(id) {
+      this.$router.push({ name: "details", params: { id: id } });
+    },
   },
 };
 </script>
