@@ -1,0 +1,14 @@
+@import "./variables";
+
+* {
+  font-family: "Rubik", sans-serif;
+  color: $TEXTCOLOR;
+  font-size: 14px;
+  line-height: 1.4em;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $BACKGROUND;
+}
