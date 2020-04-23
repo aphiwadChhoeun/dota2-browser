@@ -3,7 +3,7 @@
 * {
   font-family: "Rubik", sans-serif;
   color: $TEXTCOLOR;
-  font-size: 14px;
+  font-size: $TEXTSIZE;
   line-height: 1.4em;
 }
 
@@ -11,4 +11,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: $BACKGROUND;
+
+  #app {
+    margin: 140px 165px;
+  }
 }
